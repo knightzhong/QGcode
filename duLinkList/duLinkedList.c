@@ -1,6 +1,7 @@
-#include "../head/duLinkedList.h"
 #include<stdio.h>
 #include<stdlib.h>
+#include"duLinkedList.h"
+
 /**
  *  @name        : Status InitList_DuL(DuLinkedList *L)
  *	@description : initialize an empty linked list with only the head node
@@ -12,10 +13,9 @@ Status InitList_DuL(DuLinkedList *L) {
 	DuLNode *p1;
 	char blank;	
 	printf("请输入你想要存入的值（数字）。注意：每个值用空格隔开，按回车结束存入数字。\n");
+	printf("例如：2 3 4 5按下回车，师兄请爱惜键盘不要滚！！\n"); 
 /*出错处理：等下写上		
-		
-		
-		
+			
 		
 		
 		
@@ -36,7 +36,10 @@ Status InitList_DuL(DuLinkedList *L) {
 		(*L)->next->prior=(*L);
 		(*L)=(*L)->next;
 
-		scanf("%d",&(*L)->data);
+		if(scanf("%d",&(*L)->data)!=1){
+			printf("错误输入请重新启动程序。非常抱歉，谢谢您的配合，我们下次再见\n");    //出错处理 
+			exit(EXIT_FAILURE);
+		}
 		blank=getchar();
 		
 		
@@ -168,5 +171,18 @@ Status DeleteList_DuL(DuLNode *p, ElemType *e) {
  *  @notice      : None
  */
 void TraverseList_DuL(DuLinkedList L, void (*visit)(ElemType e)) {
+	DuLinkedList p3=L->next;
+	printf("现在链表的值为："); 
+		while(p3!=NULL)
+		{
+			visit(p3->data);
+			p3=p3->next;
+		}
+		printf("\n");
+		
+}
+void traverse(int a)
+{	
+	printf("%d  ",a);
 	
 }

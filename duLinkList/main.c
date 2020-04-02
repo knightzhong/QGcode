@@ -1,7 +1,7 @@
 #include<stdio.h>
-#include "../head/dulinkedList.h"
 #include<stdlib.h>
-#include "../dulinklist/dulinkedList.c"
+#include"duLinkedList.c"
+#include"duLinkedList.h"
 void Print(int choice);
 DuLinkedList L; 
 int count;
@@ -25,7 +25,7 @@ void main(){
 		L=p2;
 	}
 
-		
+	system("pause");		
 	
 }
 
@@ -41,9 +41,9 @@ void Print(int choice)
   system("cls");
   switch(choice)
   { case 0:
-		printf("************************************************************************\n");
-		printf("*1--销毁链表  2--删除节点  3--插入节点(前)  4--插入节点（后） 5--未开发*\n");
-		printf("************************************************************************\n");
+		printf("******************************************************************************\n");
+		printf("*1--销毁链表  2--删除节点  3--插入节点(前)  4--插入节点（后） 5--通过函数遍历*\n");
+		printf("******************************************************************************\n");
 	
 		printf("Please choose from them:(1 to 5) ");
 			scanf("%d",&choice1);
@@ -151,11 +151,14 @@ void Print(int choice)
 		break;
     case 5:
 		printf("***************************************************************\n");
-		printf("*--------------------你选择了未开发---------------------*\n");
+		printf("*--------------------你选择了通过函数遍历---------------------*\n");
 		printf("***************************************************************\n");
-	
+		TraverseList_DuL(L,traverse);
+		break;
 
 	case 6:
+		
+		printf("恭喜你打开副本！！奖励一个女朋友！！\n"); 
 		exit(EXIT_SUCCESS);
 	
 	 
