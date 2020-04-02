@@ -12,18 +12,8 @@
 Status InitList(LinkedList *L) {
 	LNode *p1;
 	char blank;	
-	printf("请先建立链表。\n");
+	printf("请先建立链表。手下留情师兄！！！\n");
 	printf("请输入你想要存入的值（数字）。注意：每个值用空格隔开，按回车结束存入数字。\n");
-/*出错处理：等下写上		
-		
-		
-		
-		
-		
-		
-		*********************** */
-	
-	
 	
 	*L=(LNode *)malloc(sizeof(LNode));
 	p1=*L;
@@ -36,7 +26,10 @@ Status InitList(LinkedList *L) {
 	{	(*L)->next=(LNode *)malloc(sizeof(LNode));
 		(*L)=(*L)->next;
 		
-		scanf("%d",&(*L)->data);
+		if(scanf("%d",&(*L)->data)!=1){
+			printf("错误输入请重新启动程序。都说不要乱写啦，非常抱歉，谢谢您的配合，我们下次再见\n");    //出错处理 
+			exit(EXIT_FAILURE);
+		}
 		blank=getchar();
 		
 		
@@ -132,6 +125,18 @@ Status DeleteList(LNode *p, ElemType *e) {
  *  @notice      : None
  */
 void TraverseList(LinkedList L, void (*visit)(ElemType e)) {
+	LinkedList p3=L->next;
+	printf("现在链表的值为："); 
+		while(p3!=NULL)
+		{
+			visit(p3->data);
+			p3=p3->next;
+		}
+		printf("\n");
+}
+void traverse(int a)
+{	
+	printf("%d  ",a);
 	
 }
 
